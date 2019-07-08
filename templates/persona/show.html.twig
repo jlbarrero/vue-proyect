@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Persona{% endblock %}
+
+{% block body %}
+    <h1>Persona</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ persona.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombres</th>
+                <td>{{ persona.nombres }}</td>
+            </tr>
+            <tr>
+                <th>Apellidos</th>
+                <td>{{ persona.apellidos }}</td>
+            </tr>
+            <tr>
+                <th>Edad</th>
+                <td>{{ persona.edad }}</td>
+            </tr>
+            <tr>
+                <th>Sexo</th>
+                <td>{{ persona.sexo }}</td>
+            </tr>
+            <tr>
+                <th>Fecha_nac</th>
+                <td>{{ persona.fechaNac ? persona.fechaNac|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>No_id</th>
+                <td>{{ persona.noId }}</td>
+            </tr>
+            <tr>
+                <th>Cant_hijos</th>
+                <td>{{ persona.cantHijos }}</td>
+            </tr>
+            <tr>
+                <th>Raza</th>
+                <td>{{ persona.raza }}</td>
+            </tr>
+            <tr>
+                <th>Salario</th>
+                <td>{{ persona.salario }}</td>
+            </tr>
+            <tr>
+                <th>Cargo</th>
+                <td>{{ persona.cargo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('persona_index') }}">back to list</a>
+
+    <a href="{{ path('persona_edit', {'id': persona.id}) }}">edit</a>
+
+    {{ include('persona/_delete_form.html.twig') }}
+{% endblock %}
